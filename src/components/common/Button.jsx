@@ -1,7 +1,7 @@
 import React from "react";
 
 const Button = ({
-  className = "h-[50px] w-[20p%] mt-[50px]",
+  className = "h-[50px] w-[20%] mt-[50px]",
   title = "Shop Now",
 }) => {
   return (

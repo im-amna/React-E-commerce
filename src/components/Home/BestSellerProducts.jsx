@@ -1,7 +1,8 @@
 import React from "react";
-import Container from "../Container";
-import ProductCard from "../ProductCard";
-import Row from "../Row";
+import { products } from "../../data/data";
+import Container from "../common/Container";
+import ProductCard from "../common/ProductCard";
+import Row from "../common/Row";
 
 const BestSellerProducts = () => {
   return (
@@ -28,27 +29,19 @@ const BestSellerProducts = () => {
       </Row>
 
       <Row className="flex-wrap gap-[1%] mt-[40px]">
-        <div className="w-[24%]">
-          <ProductCard />
-        </div>
-        <div className="w-[24%]">
-          <ProductCard />
-        </div>
-        <div className="w-[24%] mb-[20px]">
-          <ProductCard />
-        </div>
-        <div className="w-[24%] mb-[20px]">
-          <ProductCard />
-        </div>
-        <div className="w-[24%] mb-[20px]">
-          <ProductCard />
-        </div>
-        <div className="w-[24%] mb-[20px] ">
-          <ProductCard />
-        </div>
-        <div className="w-[24%] mb-[20px]">
-          <ProductCard />
-        </div>
+        {products &&
+          products.map((product) => (
+            <div key={product.id} className="w-[24%] mb-6 shadow-lg rounded-sm shadow-[#00000027]">
+              <ProductCard
+                productId={product.id}
+                title={product.title}
+                img={product.img}
+                price={product.price}
+                categoryId={product.category}
+                rating={product.rating}
+              />
+            </div>
+          ))}
       </Row>
     </Container>
   );

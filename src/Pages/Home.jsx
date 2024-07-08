@@ -1,8 +1,8 @@
 import React from "react";
-import BottomHeader from "../components/common/Header/BottomHeader";
-import BestSellerProducts from "../components/common/Home/BestSellerProducts";
-import HeroSection from "../components/common/Home/HeroSection";
-import PopularProducts from "../components/common/Home/PopularProducts";
+import BottomHeader from "../components/Header/BottomHeader";
+import BestSellerProducts from "../components/Home/BestSellerProducts";
+import HeroSection from "../components/Home/HeroSection";
+import PopularProducts from "../components/Home/PopularProducts";
 import Layout from "../components/common/Layout";
 
 const Home = () => {

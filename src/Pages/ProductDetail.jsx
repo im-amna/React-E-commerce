@@ -1,43 +1,77 @@
-import React from "react";
-import Container from "../components/common/Container";
-import Row from "../components/common/Row";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import Button from "../components/common/Button";
+import Container from "../components/common/Container";
 import Layout from "../components/common/Layout";
+import Row from "../components/common/Row";
+import { categories, products } from "../data/data";
 
 const ProductDetail = () => {
+  const { id } = useParams();
+  const [count, setCount] = useState(0);
+  const [product, setProduct] = useState({});
+  const [category, setCategory] = useState("");
+
+  useEffect(() => {
+    if (products) {
+      const product = products.find((p) => p.id === id || p.id === Number(id));
+      setProduct(product);
+    }
+
+    const categoryId = product.category;
+
+    if (categories) {
+      const category = categories.find(
+        (category) => category.id === categoryId
+      );
+      setCategory(category);
+    }
+  }, [id, product.category]);
+
+  const handleDecrease = () => {
+    if (count > 0) {
+      setCount(count - 1);
+    }
+  };
+
+  const handleIncrease = () => {
+    setCount(count + 1);
+  };
+
   return (
-        <Layout>
-          
-    <Container className="my-[41spx]">
+    <Layout>
+      <Container className="my-[41spx]">
         <Row className="justify-between">
           <Row className="w-[47%]">
             <img
               className="w-full object-cover h-[80vh]"
-              src="https://easternfashion.pk/cdn/shop/files/6_e1722546-2c3c-4556-9c0a-26114858cdc7.jpg?v=1707989835"
+              src={product.img}
               alt="product"
             />
           </Row>
           <Row className="flex-col w-[47%]">
-            <h1 className="text-[30px] text-slate-700 font-semibold mb-[70px]">
-              Clothing
+            <h1 className="text-[30px] text-slate-700 font-semibold mt-[70px]">
+              {product.title}
             </h1>
             <Row className="gap-[20px] mb-[10px]">
               <p className="text-[18px] text-black font-medium w-[15%] ">
                 Rating:
               </p>
-              <p className="text-[18px] text-black ">*****</p>
+              <p className="text-[18px] text-black ">{product.rating}</p>
             </Row>
             <Row className="gap-[20px]">
               <p className="text-[18px] text-black font-medium w-[15%] ">
                 Price:
               </p>
-              <p className="text-[18px] text-black ">$20</p>
+              <p className="text-[18px] text-black ">{product.price}</p>
             </Row>
             <Row className="gap-[20px]">
               <p className="text-[18px] text-black font-medium w-[15%] ">
                 Category:
               </p>
-              <p className="text-[18px] text-black ">Clothing</p>
+              <p className="text-[18px] text-black ">
+                {category && category.name}
+              </p>
             </Row>
             <Row className="gap-[20px] mt-[30px]">
               <p className="text-[18px] text-black font-medium w-[15%] ">
@@ -50,11 +84,21 @@ const ProductDetail = () => {
               </p>
             </Row>
             <Row className="mt-[40px] items-center">
-              <Button title="-" className="w-[52px] h-[52px]" />
+              <button
+                onClick={handleDecrease}
+                className="text-white bg-black text-[20px] font-medium w-[52px] h-[52px]"
+              >
+                -
+              </button>
               <p className="w-[70px] text-center text-[16px] font-semibold">
-                0
+                {count}
               </p>
-              <Button title="+" className="w-[52px] h-[52px]" />
+              <button
+                onClick={handleIncrease}
+                className="text-white bg-black text-[20px] font-medium w-[52px] h-[52px]"
+              >
+                +
+              </button>
             </Row>
             <Button
               title="Add to Cart"
@@ -65,7 +109,7 @@ const ProductDetail = () => {
       </Container>
       <br />
       <br />
-</Layout>
+    </Layout>
   );
 };
 
