@@ -17,7 +17,7 @@ const TopHeader = () => {
         </Row>
         <Row>
           <HeaderButton title="Account" Icon={UserIcon} />
-          <HeaderButton title="Cart" Icon={BucketIcon} />
+          <HeaderButton title="Cart" Icon={BucketIcon} url ="/cart" />
         </Row>
       </Row>
     </div>

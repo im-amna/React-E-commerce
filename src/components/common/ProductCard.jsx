@@ -1,9 +1,10 @@
 import React from "react";
 import Row from "./Row";
+import { Link } from "react-router-dom";
 
 const ProductCard = () => {
   return (
-    <div className="w-full shadow p-[5px]">
+    <Link className="w-full shadow p-[5px]" to="/product-detail">
       <img
         src="https://d2s30hray1l0uq.cloudfront.net/frontend/brand-motto.jpg"
         alt="ProdCard"
@@ -18,7 +19,7 @@ const ProductCard = () => {
         <p className="text-[16px] text-[#00000080]"> Clothing</p>
         <p className="text-[16px] text-[#00000080] font-semibold">$20</p>
       </Row>
-    </div>
+    </Link>
   );
 };
 

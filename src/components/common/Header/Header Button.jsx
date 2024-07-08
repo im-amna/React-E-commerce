@@ -1,7 +1,9 @@
 import React from "react";
 import Row from "../Row";
-const HeaderButton = ({ title, Icon }) => {
+import { Link } from "react-router-dom";
+const HeaderButton = ({ title, Icon,url }) => {
   return (
+    <Link to={url}>
     <Row className="mx-[5px]">
       <Icon />
 
@@ -9,6 +11,7 @@ const HeaderButton = ({ title, Icon }) => {
         {title}
       </p>
     </Row>
+    </Link>
   );
 };
 export default HeaderButton;

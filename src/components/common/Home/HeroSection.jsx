@@ -1,5 +1,6 @@
 import React from "react";
 import Row from "../Row";
+import Button from "../Button";
 
 const HeroSection = () => {
   return (
@@ -11,10 +12,7 @@ const HeroSection = () => {
             You can explore and shop many products different collections from
             various brands here.
           </p>
-
-          <button className="h-[50px] w-[20%] text-white bg-black text-[20px] font-medium mt-[50px] ">
-            Shop Now
-          </button>
+ <Button/> 
         </div>
 
         <div className="w-[46%]">
