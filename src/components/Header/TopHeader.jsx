@@ -1,10 +1,11 @@
 import React from "react";
-import BucketIcon from "../../../svgs/BucketIcon";
-import RotatedSquare from "../../../svgs/RotatedSquare";
-import SearchIcon from "../../../svgs/SearchIcon";
-import UserIcon from "../../../svgs/UserIcon";
-import Row from "../Row";
-import HeaderButton from "./Header Button";
+import BucketIcon from "../../svgs/BucketIcon";
+import RotatedSquare from "../../svgs/RotatedSquare";
+import SearchIcon from "../../svgs/SearchIcon";
+import UserIcon from "../../svgs/UserIcon";
+import Row from "../common/Row";
+import HeaderButton from "./HeaderButton";
+
 const TopHeader = () => {
   return (
     <div className="w-full px-[10%] h-full">
@@ -16,8 +17,8 @@ const TopHeader = () => {
           <RotatedSquare />
         </Row>
         <Row>
-          <HeaderButton title="Account" Icon={UserIcon} />
-          <HeaderButton title="Cart" Icon={BucketIcon} url ="/cart" />
+          <HeaderButton title="Account" Icon={UserIcon} url={"/login"} />
+          <HeaderButton title="Cart" Icon={BucketIcon} url="/cart" />
         </Row>
       </Row>
     </div>

@@ -1,5 +1,8 @@
 import React from "react";
-import Row from "../Row";
+import Row from "../common/Row";
+
+
+
 const menus = [
   "Jewelery &Accessories",
   "Clothing & Shoes",

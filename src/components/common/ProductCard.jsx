@@ -1,24 +1,32 @@
-import React from "react";
-import Row from "./Row";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { categories } from "../../data/data";
+import Row from "./Row";
 
-const ProductCard = () => {
+const ProductCard = ({ productId, title, img, price, categoryId, rating }) => {
+  const [category, setCategory] = useState();
+
+  useEffect(() => {
+    const category =
+      categories && categories.find((category) => category.id === categoryId);
+    setCategory(category.name);
+  }, [categoryId]);
+
   return (
-    <Link className="w-full shadow p-[5px]" to="/product-detail">
-      <img
-        src="https://d2s30hray1l0uq.cloudfront.net/frontend/brand-motto.jpg"
-        alt="ProdCard"
-        className="w-full object-cover h-[400px]"
-      />
+    <Link className="w-full shadow p-5" to={`/product-detail/${productId}`}>
+      <img src={img} alt="ProdCard" className="w-full object-cover h-[400px]" />
       <Row className="px-[10px]">
         <h6 className="text-black text-[16px] font-semibold mt-[18px]">
-          Demo Title
+          {title}
         </h6>
       </Row>
       <Row className="justify-between mt-[16px] px[10px] mb-[10px]">
-        <p className="text-[16px] text-[#00000080]"> Clothing</p>
-        <p className="text-[16px] text-[#00000080] font-semibold">$20</p>
+        <p className="text-[16px] text-[#00000080]">{category}</p>
+        <p className="text-[16px] text-[#00000080] font-semibold">{price}</p>
       </Row>
+      <p className="text-[16px] text-[#00000080]">
+        Total number of reviews: {rating}
+      </p>
     </Link>
   );
 };

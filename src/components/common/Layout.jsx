@@ -1,13 +1,15 @@
-import React from 'react';
-import Footer from '../Footer';
-import TopHeader from './Header/TopHeader';
+import React from "react";
+import Footer from "../Footer";
+import TopHeader from "../Header/TopHeader";
 
-const Layout = ({children}) => {
-    return( <div className="w-full  bg-[#1e28320d] h-[60px]">
+const Layout = ({ children }) => {
+  return (
+    <div className="w-full  bg-[#1e28320d] h-[60px]">
       <TopHeader />
       {children}
-      <Footer/>
-      </div> );
-}
- 
+      <Footer />
+    </div>
+  );
+};
+
 export default Layout;
