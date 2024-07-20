@@ -23,8 +23,10 @@ const ProductDetails = () => {
       console.log("ERROR", error);
     }
   };
+
   useEffect(() => {
     getProduct();
+    // eslint-disable-next-line
   }, []);
 
   return (
