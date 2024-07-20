@@ -13,7 +13,7 @@ const ProductCard = ({ productId, title, img, price, categoryId, rating }) => {
         </h6>
       </Row>
       <Row className="justify-between mt-[16px] px[10px] mb-[10px]">
-        <p className="text-[16px] text-[#00000080]">{category}</p>
+        {/* <p className="text-[16px] text-[#00000080]">{Category}</p> */}
         <p className="text-[16px] text-[#00000080] font-semibold">{price}</p>
       </Row>
       <p className="text-[16px] text-[#00000080]">
