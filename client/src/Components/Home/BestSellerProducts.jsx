@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
+import client from "../../apis";
+import apiEndpoints from "../../apis/endpoint";
 import Container from "../common/Container";
 import Row from "../common/Row";
 import ProductCard from "./ProductCard";
-import client from "../../apis";
-import apiEndpoints from "../../apis/endpoint";
 
 const BestSellerProducts = () => {
   const [products, setProducts] = useState([]);
@@ -25,9 +25,12 @@ const BestSellerProducts = () => {
       console.log("ERROR", error);
     }
   };
+
   useEffect(() => {
     getData();
+    // eslint-disable-next-line
   }, []);
+
   return (
     <Container>
       <h1 className="w-full text-center text-[30px] uppercase mb-[40px] text-black font-semibold mt-[80px]">
